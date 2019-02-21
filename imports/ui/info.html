@@ -1,0 +1,12 @@
+<template name="info">
+    <li>
+        <button class="delete">&times;</button>
+
+        <div class="text"><strong>Тип записи:</strong> {{event}}</div>
+        <div class="text"><strong>Время записи:</strong> {{getCreatedAt}}</div>
+        <div class="text"><strong>Время загрузки файла:</strong> {{getFileCreatedAt}}</div>
+        <div class="text"><strong>Размер:</strong> {{ getSize }} mb</div>
+        <div class="text"><strong>Тип:</strong> {{type}}</div>
+        <div class="text"><strong>Создано пользователем:</strong> {{userLoaded}}</div>
+    </li>
+</template>

@@ -1,0 +1,35 @@
+<template name="file">
+    <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
+
+        {{#if isOwner}}
+        <button class="delete">&times;</button>
+        {{/if}}
+
+        <button class="toggle-info">
+            {{#if showInfo}}
+            HideInfo
+            {{else}}
+            ShowInfo
+            {{/if}}
+        </button>
+
+
+        {{#if showInfo}}
+        <div class="text"><strong>Имя файла:</strong> {{name}}</div>
+        <div class="text"><strong>Размер:</strong> {{getSize}} mb</div>
+        <div class="text"><strong>Тип:</strong> {{type}}</div>
+        <div class="text"><strong>Создано пользователем:</strong> {{meta.userLoaded}} {{getFormattedDate}}</div>
+        <div class="text">
+            <strong>
+                <a href="{{fileURL fileRef}}?download=true" download="{{fileRef.name}}"
+                                     target="_parent">Скачать файл</a>
+            </strong>
+        </div>
+        {{/if}}
+
+        {{#if isImage}}
+        <img class="img-preview" src="{{imageFile.link}}" alt="">
+        {{/if}}
+
+        </li>
+</template>

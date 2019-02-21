@@ -1,24 +1,31 @@
 <body>
-    <div class="container">
-        <header>
-            <h1>Todo List ({{incompleteCount}})</h1>
-       
-            <label class="hide-completed">
-              <input type="checkbox" />
-              Hide Completed Tasks
-            </label>
-            {{> loginButtons}}
-   
-        
-            <form class="new-task">
-              <input type="text" name="text" placeholder="Type to add new tasks" />
-          </form>
-        </header>
-     
+<div class="container">
+    <header>
+        <h1>File Uploader ({{incompleteCount}} files)</h1>
+        {{> loginButtons}}
+    </header>
+
+    <main>
+        {{> uploadForm}}
         <ul>
-        {{#each tasks}}
-          {{> task}}
-        {{/each}}
-      </ul>
-    </div>
+            {{#each files}}
+            {{> file}}
+            {{/each}}
+        </ul>
+
+
+        {{#if infosCount}}
+        <h3>Информация с базы MongoDB</h3>
+        <ol>
+            {{#each infos}}
+            {{> info}}
+            {{/each}}
+        </ol>
+        {{else}}
+        <h3>Добро пожаловать в нашу чудесную программу!</h3>
+        {{/if}}
+    </main>
+
+
+</div>
 </body>
